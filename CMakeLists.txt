@@ -98,40 +98,42 @@ add_executable(dtw_example example/dtw_example.cpp)
 target_link_libraries(dtw_example ${PROJECT_NAME})
 
 # Tests
-enable_testing()
-find_package(GTest REQUIRED)
+if(BUILD_TESTING)
+    find_package(GTest REQUIRED)
+    enable_testing()
 
-add_executable(hausdorff_distance_test test/hausdorff_distance_test.cpp)
-target_link_libraries(hausdorff_distance_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-add_test(NAME hausdorff_distance_test COMMAND hausdorff_distance_test)
+    add_executable(hausdorff_distance_test test/hausdorff_distance_test.cpp)
+    target_link_libraries(hausdorff_distance_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    add_test(NAME hausdorff_distance_test COMMAND hausdorff_distance_test)
 
-add_executable(maybe_test test/maybe_test.cpp)
-target_link_libraries(maybe_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-add_test(NAME maybe_test COMMAND maybe_test)
+    add_executable(maybe_test test/maybe_test.cpp)
+    target_link_libraries(maybe_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    add_test(NAME maybe_test COMMAND maybe_test)
 
-add_executable(parallelism_test test/parallelism_test.cpp)
-target_link_libraries(parallelism_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-add_test(NAME parallelism_test COMMAND parallelism_test)
+    add_executable(parallelism_test test/parallelism_test.cpp)
+    target_link_libraries(parallelism_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    add_test(NAME parallelism_test COMMAND parallelism_test)
 
-add_executable(planning_test test/planning_test.cpp)
-target_link_libraries(planning_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-add_test(NAME planning_test COMMAND planning_test)
+    add_executable(planning_test test/planning_test.cpp)
+    target_link_libraries(planning_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    add_test(NAME planning_test COMMAND planning_test)
 
-add_executable(task_planning_test test/task_planning_test.cpp)
-target_link_libraries(task_planning_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-add_test(NAME task_planning_test COMMAND task_planning_test)
+    add_executable(task_planning_test test/task_planning_test.cpp)
+    target_link_libraries(task_planning_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    add_test(NAME task_planning_test COMMAND task_planning_test)
 
-add_executable(utility_test test/utility_test.cpp)
-target_link_libraries(utility_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-add_test(NAME utility_test COMMAND utility_test)
+    add_executable(utility_test test/utility_test.cpp)
+    target_link_libraries(utility_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    add_test(NAME utility_test COMMAND utility_test)
 
-add_executable(voxel_grid_test test/voxel_grid_test.cpp)
-target_link_libraries(voxel_grid_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-add_test(NAME voxel_grid_test COMMAND voxel_grid_test)
+    add_executable(voxel_grid_test test/voxel_grid_test.cpp)
+    target_link_libraries(voxel_grid_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    add_test(NAME voxel_grid_test COMMAND voxel_grid_test)
 
-# add_executable(print_test test/print_test.cpp)
-# target_link_libraries(print_test ${PROJECT_NAME} GTest::GTest GTest::Main)
-# add_test(NAME print_test COMMAND print_test)
+    # add_executable(print_test test/print_test.cpp)
+    # target_link_libraries(print_test ${PROJECT_NAME} GTest::GTest GTest::Main)
+    # add_test(NAME print_test COMMAND print_test)
+endif()
 
 #############
 ## Install ##
