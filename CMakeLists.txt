@@ -23,7 +23,11 @@ cmake_policy(SET CMP0069 NEW)
 add_compile_options(-std=c++17)
 add_compile_options(-Wall)
 add_compile_options(-Wextra)
-add_compile_options(-Werror)
+# MacOS throws a bunch of sign-conversion errors with this flag while it works
+# just fine on Linux.
+if(NOT APPLE)
+    add_compile_options(-Werror)
+endif()
 add_compile_options(-Wconversion)
 add_compile_options(-Wshadow)
 add_compile_options(-O3)
